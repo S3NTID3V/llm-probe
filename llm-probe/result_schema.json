@@ -1,0 +1,88 @@
+{
+  "type": "object",
+  "required": [
+    "probe_version",
+    "model_name",
+    "provider_name",
+    "reported_datetime",
+    "reported_capabilities",
+    "secret_phrase",
+    "tasks"
+  ],
+  "properties": {
+    "probe_version": {
+      "type": "string",
+      "description": "Version identifier for the probe, e.g. 'v1'."
+    },
+    "model_name": {
+      "type": "string",
+      "description": "Model name as reported by the model, e.g. 'gpt-5.1', 'claude-3.5'."
+    },
+    "provider_name": {
+      "type": "string",
+      "description": "Name of the platform or provider, e.g. 'OpenAI', 'Anthropic'."
+    },
+    "reported_datetime": {
+      "type": "string",
+      "description": "The current date/time as reported by the model, ideally in ISO 8601 format."
+    },
+    "reported_capabilities": {
+      "type": "object",
+      "description": "Self-reported capabilities of the model in the current environment.",
+      "properties": {
+        "can_access_http": {
+          "type": "boolean",
+          "description": "Whether the model can access HTTP/HTTPS URLs in this environment."
+        },
+        "can_execute_code": {
+          "type": "boolean",
+          "description": "Whether the model can execute arbitrary code or run a code interpreter tool."
+        },
+        "can_use_external_tools": {
+          "type": "boolean",
+          "description": "Whether the model can call tools/APIs beyond plain text generation."
+        },
+        "has_persistent_memory": {
+          "type": "boolean",
+          "description": "Whether the model environment claims to have long-term memory across sessions."
+        }
+      },
+      "required": [
+        "can_access_http",
+        "can_execute_code",
+        "can_use_external_tools",
+        "has_persistent_memory"
+      ]
+    },
+    "secret_phrase": {
+      "type": "string",
+      "description": "The exact secret phrase read from secret.txt."
+    },
+    "tasks": {
+      "type": "array",
+      "description": "Results for each task defined in tests.json.",
+      "items": {
+        "type": "object",
+        "required": [
+          "id",
+          "outcome"
+        ],
+        "properties": {
+          "id": {
+            "type": "string",
+            "description": "Task id, matching tests.json."
+          },
+          "outcome": {
+            "type": "string",
+            "enum": ["success", "failure", "not_supported"],
+            "description": "Model's assessment of how it performed on the task."
+          },
+          "model_comment": {
+            "type": "string",
+            "description": "Optional short explanation of why the outcome occurred. Must not contain personal user data."
+          }
+        }
+      }
+    }
+  }
+}
