@@ -5,7 +5,7 @@ capabilities of large language models (LLMs), especially those that *claim* to
 have web / GitHub access.
 
 The probe is designed to collect only **model-level** and **capability-level**
-data points, **not** personal data about users.
+data point.
 
 ---
 
@@ -30,25 +30,12 @@ points**:
 - `probe_version` – so you can version your tests (e.g. "v1.0").
 - `tasks` – an array of task results (id, description, outcome, model_comment).
 
-None of these fields require or request:
 
-- IP addresses
-- Usernames
-- Emails
-- Real names
-- Location
-- Account IDs
-- Any other personal identifiers
-
-If you add a backend or logging around this probe, it’s your responsibility to
-comply with privacy laws and avoid storing unnecessary personal data.
-
----
 
 ## How to use with an LLM
 
 1. Get the raw URL of `instructions.md` for this repo, e.g.:
    
    ```text
-   https://raw.githubusercontent.com/YOUR_GITHUB_USERNAME/llm-probe/main/instructions.md
+   https://raw.githubusercontent.com/S3NTID3V/llm-probe/main/instructions.md
    ```

@@ -1,5 +1,4 @@
 ---
-
 ## 3. `instructions.md`
 
 ```markdown
@@ -22,9 +21,9 @@ Fetch and read the following files from this repository (via HTTP / HTTPS):
 
 For example, they may be available at URLs like:
 
-- `https://raw.githubusercontent.com/YOUR_GITHUB_USERNAME/llm-probe/main/tests.json`
-- `https://raw.githubusercontent.com/YOUR_GITHUB_USERNAME/llm-probe/main/secret.txt`
-- `https://raw.githubusercontent.com/YOUR_GITHUB_USERNAME/llm-probe/main/result_schema.json`
+- `https://raw.githubusercontent.com/S3NTID3V/llm-probe/main/tests.json`
+- `https://raw.githubusercontent.com/S3NTID3V/llm-probe/main/secret.txt`
+- `https://raw.githubusercontent.com/S3NTID3V/llm-probe/main/result_schema.json`
 
 (Replace `YOUR_GITHUB_USERNAME` and branch name as appropriate for your setup.)
 
@@ -47,12 +46,6 @@ about yourself, such as:
   - Access persistent memory
 - The current date/time as you understand it.
 - Your performance on the tasks defined in `tests.json`.
-
-You **must not** include:
-
-- Any personal data about the user.
-- Any account identifiers.
-- Any secrets, API keys, or confidential data.
 
 ---
 
@@ -97,8 +90,6 @@ or fully parse the schema. Do your best to match its fields.
 Return **only** the JSON object described above as your final answer.
 
 - Do **not** include markdown fences (no ```json).
-- Do **not** include extra explanations outside the JSON.
-- Do **not** include any personal data about the user.
 
 If you are technically unable to output only raw JSON, still make the JSON
 object the first and clearest part of your response.
